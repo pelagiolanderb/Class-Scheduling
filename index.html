@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			Class Schedule
+		</title>
+		<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+		<link href="icons/web-icon.png" rel="icon">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="left-side"></div>
+			<div class="middle">
+				<div class="header">
+					<img src="icons/web-icon.png">
+				</div>
+				<ul>
+					<li id="home">HOME</li>
+					<li id="schedule">SCHEDULE</li>
+					<li id="profile">PROFILE</li>
+					<li id="setting">SETTING</li>
+					<li id="help-feedback">HELP & FEEDBACK</li>
+				</ul>
+				<div class="body">
+					<div class="log-in-container">
+						<div class="log-in-header">
+							<h1>
+								ACCOUNT
+							</h1>
+						</div>
+						<div class="log-in-body">
+							<label for="email">Email</label>
+							<input type="text" name="email" placeholder="Enter your email">
+							<label for="password">Password</label>
+							<input type="password" name="password" placeholder="Enter your password">
+							<button id="log-in">Log In</button>
+						</div>
+						<div class="log-in-footer">
+							<a href="">Forgot your password?</a>
+						</div>
+					</div>
+
+					<div class="displayed-schedule-container">
+						<table>
+							<thead>
+								<th>select</th>
+								<th>date</th>
+								<th>time</th>
+								<th>subject/course</th>
+								<th>action</th>
+							</thead>
+							<tbody id="tblSchedule"></tbody>
+						</table>
+					</div>
+					<div class="num-schedule-container">
+						<p>3 MORE SET SCHEDULES TO ACCOMPLISH</p>
+						<span></span>
+					</div>
+
+					<div class="profile-container">
+						<div class="profile-left">
+							<img src="icons/profile-user.png">
+						</div>
+						<div class="profile-right">
+							<div class="profile-body-header">Student's Information</div>
+							<div class="profile-body-body">
+								<label for="username">Username</label>
+								<input type="text" name="username" placeholder="Enter your username...">
+								<button>Change</button>
+								<label for="email">Email</label>
+								<input type="text" name="email" placeholder="Enter your email...">
+								<button>Change</button>
+								<label for="password">Password</label>
+								<input type="password" name="password" placeholder="Enter your password...">
+								<button>Change</button>
+							</div>
+							<div class="profile-body-footer">
+								<button id="view-schedule">View Schedule</button>
+								<button id="log-out">Log Out</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="setting-container">
+						<h2>Settings</h2>
+						<h3>Account</h3>
+						<div class="account">
+							<div class="icon">
+								<img src="icons/profile-user.png">
+							</div>
+							<div class="title">
+								<p>Lander Pelagio</p>
+								<p>Personal Info</p>
+							</div>
+							<div class="button">
+								<button>></button>
+							</div>
+						</div>
+						<h3>Settings</h3>
+						<div class="language">
+							<div class="icon">
+								<img src="icons/world.png">
+							</div>
+							<div class="title">
+								<p>Language</p>
+							</div>
+							<div class="button">
+								<button>></button>
+							</div>
+						</div>
+						<div class="schedule">
+							<div class="icon">
+								<img src="icons/clock.png">
+							</div>
+							<div class="title">
+								<p>Schedule</p>
+							</div>
+							<div class="button">
+								<button>></button>
+							</div>
+						</div>
+						<div class="notifications">
+							<div class="icon">
+								<img src="icons/notification.png">
+							</div>
+							<div class="title">
+								<p>Notifications</p>
+							</div>
+							<div class="button">
+								<button>></button>
+							</div>
+						</div>
+						<div class="help-feedback">
+							<div class="icon">
+								<img src="icons/help-web-button.png">
+							</div>
+							<div class="title">
+								<p>Help & Feedback</p>
+							</div>
+							<div class="button">
+								<button>></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="help-feedback-container">
+						<h1>Help & Feedback</h1>
+						<div class="help">
+							<label for="help">State the problem...</label>
+							<textarea name="help" placeholder="Enter here..."></textarea>
+							<button>Submit</button>
+						</div>
+						<div class="feedback">
+							<label for="feedback">How's your experiences.?</label>
+							<textarea name="feedback" placeholder="Enter here..."></textarea>
+							<button>Submit</button>
+						</div>
+					</div>
+
+					<div class="schedule-container">
+						<div class="schedule-left-side">
+							<div class="schedule-title">monthly schedule</div>
+							<div class="calendar">
+								<div class="month">
+									<i class="fas fa-angle-left prev"></i>
+									<div class="date">
+										<h1></h1>
+										<p id="currentDate"></p>
+									</div>
+									<i class="fas fa-angle-right next"></i>
+								</div>
+								<div class="weekdays">
+									<div>Sun</div>
+									<div>Mon</div>
+									<div>Tue</div>
+									<div>Wed</div>
+									<div>Thu</div>
+									<div>Fri</div>
+									<div>Sat</div>
+								</div>
+								<div class="days"></div>
+							</div>
+
+							<div class="schedule-input-container">
+								<div class="schedule-input-left">
+									<label for="subject">Subject:</label>
+									<span>
+										<input type="text" name="subject" placeholder="Enter the subject...">
+									</span>
+									<label for="teacher">Teacher:</label>
+									<span>
+										<input type="text" name="teacher" placeholder="Enter the teacher...">
+									</span>
+									<label for="months">Choose a Month:</label>
+									<span>
+										<select name="months" id="months"></select>
+									</span>
+									<label for="year">Enter the year:</label>
+									<span>
+										<input type="text" name="year" placeholder="Enter the year...">
+									</span>
+								</div>
+								<div class="schedule-input-right">
+									<label for="hour">Hour:</label>
+									<span>
+										<input type="number" name="hour" placeholder="0" min="1" max="24">
+									</span>
+									<label for="minutes">Minutes:</label>
+									<span>
+										<input type="number" name="minutes" placeholder="0" min="00" max="59"> 
+									</span>
+									<label for="days">Choose a Day:</label>
+									<span>
+										<select name="days" id="days">
+										</select>
+									</span>
+									<button id="saveSchedule">Save Schedule</button>
+								</div>
+							</div>
+						</div>
+						<div class="schedule-right-side">
+							<div class="schedule-header">
+								<p id="subject">Subject</p>
+								<p id="teacher">teacher</p>
+							</div>
+							<div class="schedule-body">
+								<div>
+									<img src="icons/calendar.png">
+								</div>
+								<div>
+									<p id="date">Empty</p>
+									<p>Date</p>
+								</div>
+							</div>
+							<div class="schedule-body">
+								<div>
+									<img src="icons/clock.png">
+								</div>
+								<div>
+									<p id="time">00:00</p>
+									<p>Time</p>
+								</div>
+							</div>
+							<div class="schedule-body">
+								<div>
+									<img src="icons/timer.png">
+								</div>
+								<div>
+									<p id="duration">00:00</p>
+									<p>Duration</p>
+								</div>
+							</div>
+							<div class="schedule-footer">
+								<button id="display" disabled>Display</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right-side"></div>
+		</div>
+
+		<script type="text/javascript" src="Schedule.js"></script>
+	</body>
+</html>
